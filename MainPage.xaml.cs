@@ -17,7 +17,7 @@ namespace CarouselViewBug
         {
             CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
 
-            string text = "This is a Toast";
+            string text = "Tapped event fired.";
             ToastDuration duration = ToastDuration.Short;
             double fontSize = 14;
 

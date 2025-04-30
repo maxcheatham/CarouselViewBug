@@ -6,16 +6,17 @@
              x:Class="CarouselViewBug.MainPage"
              x:DataType="local:MainViewModel">
 
-    <ScrollView>
-        <VerticalStackLayout
-            Padding="30,0"
-            Spacing="25">
-            <Image
-                Source="dotnet_bot.png"
-                HeightRequest="185"
-                Aspect="AspectFit"
-                SemanticProperties.Description="dot net bot in a race car number eight" />
-
+    <VerticalStackLayout
+        Padding="30,0"
+        Spacing="25">
+        <Image
+            Source="dotnet_bot.png"
+            HeightRequest="185"
+            Aspect="AspectFit"
+            SemanticProperties.Description="dot net bot in a race car number eight" />
+        <Grid
+            ColumnDefinitions="*,*,*"
+            >
             <Border
                 StrokeShape="RoundRectangle 5, 5"
                 HeightRequest="160"
@@ -55,14 +56,12 @@
                                         HorizontalTextAlignment="Center"
                                         VerticalOptions="End"
                                         />
-                                    <Grid.GestureRecognizers>
-                                        <TapGestureRecognizer
-                                        Tapped="TapGestureRecognizer_Tapped"
-                                        />
-                                    </Grid.GestureRecognizers>
                                 </Grid>
                             </DataTemplate>
                         </cards:CarouselView.ItemTemplate>
+                        <cards:CarouselView.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                        </cards:CarouselView.GestureRecognizers>
                     </cards:CarouselView>
                     <IndicatorView
                         Grid.Row="1"
@@ -74,19 +73,135 @@
                         IndicatorColor="LightGray"
                         SelectedIndicatorColor="Aquamarine"
                         />
-                    
                 </Grid>
             </Border>
-
-            <Button
-                Text="Remove Last Item"
-                Command="{Binding RemoveLastItemCommand}"
-                />
-            <Button
-                Text="Add New Item"
-                Command="{Binding AddNewItemCommand}"
-                />
-        </VerticalStackLayout>
-    </ScrollView>
+            <Border
+                Grid.Column="1"
+                StrokeShape="RoundRectangle 5, 5"
+                HeightRequest="160"
+                WidthRequest="80"
+                >
+                <Grid
+                    RowDefinitions="*,auto"
+                    >
+                    <cards:CarouselView
+                        ItemsSource="{Binding Items}"
+                        IndicatorView="indicatorView2"
+                        >
+                        <cards:CarouselView.ItemTemplate>
+                            <DataTemplate x:DataType="local:CellData">
+                                <Grid
+                                    Margin="0,0,0,4"
+                                    RowDefinitions="1.2*,*,1.2*"
+                                    >
+                                    <Label
+                                        Text="{Binding CellLine1}"
+                                        FontSize="Micro"
+                                        HorizontalTextAlignment="Center"
+                                        VerticalOptions="Center"
+                                        />
+                                    <Image
+                                        Grid.Row="1"
+                                        Source="{Binding SeverityIconSource}"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"
+                                        WidthRequest="24"
+                                        >
+                                    </Image>
+                                    <Label
+                                        Grid.Row="2"
+                                        Text="{Binding CellLine2}"
+                                        FontSize="Micro"
+                                        HorizontalTextAlignment="Center"
+                                        VerticalOptions="End"
+                                        />
+                                    <Grid.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                                    </Grid.GestureRecognizers>
+                                </Grid>
+                            </DataTemplate>
+                        </cards:CarouselView.ItemTemplate>
+                    </cards:CarouselView>
+                    <IndicatorView
+                        Grid.Row="1"
+                        x:Name="indicatorView2"
+                        Margin="0,4,0,4"
+                        HorizontalOptions="Center"
+                        VerticalOptions="End"
+                        IndicatorSize="6"
+                        IndicatorColor="LightGray"
+                        SelectedIndicatorColor="Aquamarine"
+                        />
+                </Grid>
+            </Border>
+            <Border
+                Grid.Column="2"
+                StrokeShape="RoundRectangle 5, 5"
+                HeightRequest="160"
+                WidthRequest="80"
+                >
+                <Grid
+                    RowDefinitions="*,auto"
+                    >
+                    <cards:CarouselView
+                        ItemsSource="{Binding Items}"
+                        IndicatorView="indicatorView3"
+                        >
+                        <cards:CarouselView.ItemTemplate>
+                            <DataTemplate x:DataType="local:CellData">
+                                <Grid
+                                    Margin="0,0,0,4"
+                                    RowDefinitions="1.2*,*,1.2*"
+                                    >
+                                    <Label
+                                        Text="{Binding CellLine1}"
+                                        FontSize="Micro"
+                                        HorizontalTextAlignment="Center"
+                                        VerticalOptions="Center"
+                                        />
+                                    <Image
+                                        Grid.Row="1"
+                                        Source="{Binding SeverityIconSource}"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"
+                                        WidthRequest="24"
+                                        >
+                                    </Image>
+                                    <Label
+                                        Grid.Row="2"
+                                        Text="{Binding CellLine2}"
+                                        FontSize="Micro"
+                                        HorizontalTextAlignment="Center"
+                                        VerticalOptions="End"
+                                        />
+                                </Grid>
+                            </DataTemplate>
+                        </cards:CarouselView.ItemTemplate>
+                    </cards:CarouselView>
+                    <IndicatorView
+                        Grid.Row="1"
+                        x:Name="indicatorView3"
+                        Margin="0,4,0,4"
+                        HorizontalOptions="Center"
+                        VerticalOptions="End"
+                        IndicatorSize="6"
+                        IndicatorColor="LightGray"
+                        SelectedIndicatorColor="Aquamarine"
+                        />
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    </Grid.GestureRecognizers>
+                </Grid>
+            </Border>
+        </Grid>
+        <Button
+            Text="Remove Last Item"
+            Command="{Binding RemoveLastItemCommand}"
+            />
+        <Button
+            Text="Add New Item"
+            Command="{Binding AddNewItemCommand}"
+            />
+    </VerticalStackLayout>
 
 </ContentPage>
