@@ -19,8 +19,8 @@
             >
             <Border
                 StrokeShape="RoundRectangle 5, 5"
-                HeightRequest="160"
-                WidthRequest="80"
+                HeightRequest="100"
+                WidthRequest="50"
                 >
                 <Grid
                     RowDefinitions="*,auto"
@@ -78,8 +78,8 @@
             <Border
                 Grid.Column="1"
                 StrokeShape="RoundRectangle 5, 5"
-                HeightRequest="160"
-                WidthRequest="80"
+                HeightRequest="100"
+                WidthRequest="50"
                 >
                 <Grid
                     RowDefinitions="*,auto"
@@ -137,8 +137,8 @@
             <Border
                 Grid.Column="2"
                 StrokeShape="RoundRectangle 5, 5"
-                HeightRequest="160"
-                WidthRequest="80"
+                HeightRequest="100"
+                WidthRequest="50"
                 >
                 <Grid
                     RowDefinitions="*,auto"
